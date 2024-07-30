@@ -6,11 +6,10 @@
     <title>Elijah Eze - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
-    rel="stylesheet"
-  />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
     <header>
@@ -23,18 +22,18 @@
             </ul>
         </nav>
         <div class="hero">
-            <h1>Hi, I'm Elijah Eze</h1>
-            <p>Backend Developer, AWS Cloud & DevOps Engineer</p>
+            <div class="type-wrapper"><h1 id="hero-text" class="typed-text"></h1></div>
+            <div class="type-wrapper"><p id="hero-subtext" class="typed-text"></p></div>
             <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
     </header>
-    <section id="about" class="about-section">
+    <section id="about" class="about-section observe">
       <div class="container">
           <div class="about-content">
               <div class="profile-picture">
                   <img src="profile-pic.jpg" alt="Elijah Eze">
               </div>
-              <div class="about-text">
+              <div class="about-text typed-text">
                   <h2>About Me</h2>
                   <p>Hello! I'm Elijah Eze, a passionate software developer specializing in backend technologies, AWS, and DevOps practices. I thrive on solving complex problems and love working on innovative projects.</p>
                   <p>Here are some highlights of my journey:</p>
@@ -70,9 +69,9 @@
   </section>
   
   
-    <section id="skills" class="skills-section">
+    <section id="skills" class="skills-section observe">
         <div class="container">
-            <h2>Skills</h2>
+            <h2 class="typed-text">Skills</h2>
             <div class="skills-grid">
                 <!-- Example Skill -->
                 
@@ -82,9 +81,9 @@
             </div>
         </div>
     </section>
-    <section id="projects" class="projects-section">
+    <section id="projects" class="projects-section observe">
         <div class="container">
-            <h2>Projects</h2>
+            <h2 class="typed-text">Projects</h2>
             <div class="projects-grid">
                 <!-- Example Project Card -->
                 <div class="project-card">
@@ -99,9 +98,9 @@
             </div>
         </div>
     </section>
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section observe">
         <div class="container">
-            <h2>Contact Me</h2>
+            <h2 class="typed-text">Contact Me</h2>
             <form action="submit_form.php" method="post" class="contact-form">
                 <div class="form-group">
                     <label for="name">Name:</label>

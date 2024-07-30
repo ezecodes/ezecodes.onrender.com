@@ -20,7 +20,9 @@ header {
   padding: 2em 1em;
   text-align: center;
 }
-
+.type-wrapper {
+  display: flex; align-items: center; justify-content: center;
+}
 .navbar {
   position: sticky;
   top: 0;

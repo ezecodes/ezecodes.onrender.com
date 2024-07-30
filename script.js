@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Get all links with hashes
-  const links = document.querySelectorAll('a[href^="#"]');
-
+document.addEventListener("DOMContentLoaded", () => {
   const skillsSection = document.querySelectorAll(".skills-grid")[0];
 
   const skills = [
@@ -235,20 +232,62 @@ document.addEventListener("DOMContentLoaded", function () {
     div.classList.add("skill");
     skillsSection.appendChild(div);
   });
+  // Initialize Typed.js for the hero section
+  const typedHero = new Typed("#hero-text", {
+    strings: [
+      "Welcome to My Portfolio",
+      "I'm Elijah Eze",
+      "Full Stack Developer",
+      "Cloud Enthusiast",
+      "DevOps Specialist",
+    ],
+    typeSpeed: 50,
+    backSpeed: 10,
+    loop: true,
+  });
 
-  // Add click event listener
-  links.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      // Prevent default action
-      event.preventDefault();
+  const typedHeroSubtext = new Typed("#hero-subtext", {
+    strings: [
+      "Explore my work",
+      "Connect with me",
+      "Let's build something great together",
+    ],
+    typeSpeed: 50,
+    backSpeed: 10,
+    startDelay: 2000,
+    loop: true,
+  });
 
-      // Get the target element
-      const target = document.querySelector(this.getAttribute("href"));
+  // Initialize Intersection Observer for other sections
+  const options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
 
-      // Scroll to the target element
-      target.scrollIntoView({
-        behavior: "smooth",
-      });
+  const sections = document.querySelectorAll('.section');
+
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Optionally, stop observing the section once it's visible
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
     });
   });
 });
