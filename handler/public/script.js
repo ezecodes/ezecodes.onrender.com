@@ -241,8 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "Cloud Enthusiast",
       "DevOps Specialist",
     ],
-    typeSpeed: 50,
-    backSpeed: 10,
+    typeSpeed: 300,
+    backSpeed: 100,
     loop: true,
   });
 
@@ -252,8 +252,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "Connect with me",
       "Let's build something great together",
     ],
-    typeSpeed: 50,
-    backSpeed: 10,
+    typeSpeed: 300,
+    backSpeed: 100,
     startDelay: 2000,
     loop: true,
   });
@@ -265,20 +265,19 @@ document.addEventListener("DOMContentLoaded", () => {
     threshold: 0.1,
   };
 
-  const sections = document.querySelectorAll('.section');
-
+  const sections = document.querySelectorAll(".section");
 
   const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add("visible");
         // Optionally, stop observing the section once it's visible
         observer.unobserve(entry.target);
       }
     });
   }, options);
 
-  sections.forEach(section => {
+  sections.forEach((section) => {
     observer.observe(section);
   });
 });
