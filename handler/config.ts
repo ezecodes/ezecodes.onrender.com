@@ -1,4 +1,11 @@
 import dotenv from "dotenv"
 dotenv.config()
 
-export const port: number | string = process.env.port || 3000
+export const port = process.env.port || 3000
+
+export const mailConfig = {
+  host: process.env.mailHost,
+  pass: process.env.mailPass,
+  user: process.env.mailUser,
+  port: process.env.mailPort
+}

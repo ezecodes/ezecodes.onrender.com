@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script src="htmx.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
 </head>
@@ -93,7 +95,7 @@
                     <div class="project-info">
                         <h3>Clifbay</h3>
                         <p>Fastest growing africa's online marketplace.</p>
-                        <a href="https://clifbay.com">View Project</a>
+                        <a href="https://clifbay.com" target="_blank">View Project</a>
                     </div>
                 </div>
                 <!-- Repeat for each project -->
@@ -103,7 +105,9 @@
     <section id="contact" class="contact-section observe">
         <div class="container">
             <h2 class="typed-text">Contact Me</h2>
-            <form action="submit_form.php" method="post" class="contact-form">
+            <form  
+            action="/contact"
+            method="post" class="contact-form">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -117,6 +121,8 @@
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 <button type="submit" class="submit-button">Send Message</button>
+
+                <div id="response"></div> 
             </form>
         </div>
     </section>

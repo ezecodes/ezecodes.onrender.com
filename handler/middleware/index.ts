@@ -8,9 +8,9 @@ export default () => helmet({
       defaultSrc: ["'self'"],
       connectSrc: ["'self'"],
       frameSrc: ["'self'",],
-      styleSrc: ["'self'", "'unsafe-inline'", "fonts.googleapis.com", "cdnjs.cloudflare.com"],
-      scriptSrc: ["'self'", "cdn.jsdelivr.net"],
-      imgSrc: ["'self'", "avatars.githubusercontent.com", "raw.githubusercontent.com", "github.githubassets.com", "docs.amplify.aws/assets/logo-dark.svg", "www.vectorlogo.zone", "cdn.worldvectorlogo.com", "reactnative.dev/img/header_logo.svg"],
+      styleSrc: ["'self'", "stackpath.bootstrapcdn.com", "'unsafe-inline'", "fonts.googleapis.com", "cdnjs.cloudflare.com"],
+      scriptSrc: ["'self'", "cdn.jsdelivr.net", "unpkg.com"],
+      imgSrc: ["'self'", "upload.wikimedia.org","avatars.githubusercontent.com", "raw.githubusercontent.com", "github.githubassets.com", "docs.amplify.aws/assets/logo-dark.svg", "www.vectorlogo.zone", "cdn.worldvectorlogo.com", "reactnative.dev/img/header_logo.svg"],
     },
   },
   frameguard: {

@@ -289,4 +289,27 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       behavior: "smooth",
     });
   });
+
+  const u = new URL(document.location);
+  const w = new URLSearchParams(u.search);
+  const requestQuery = {};
+  w.forEach((value, key) => {
+    requestQuery[key] = value;
+  });
+  if (requestQuery.rT === "form" && requestQuery.ok === "true") {
+    Swal.fire({
+      title: "<strong>Success</strong>",
+      icon: "info",
+      html: "You form was received",
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "Great!",
+      confirmButtonAriaLabel: "We'll get back to you soon!",
+      cancelButtonText: "Dismiss",
+      cancelButtonAriaLabel: "Thumbs down",
+    }).then(() => {
+      document.location.href = u.origin;
+    });
+  }
 });
