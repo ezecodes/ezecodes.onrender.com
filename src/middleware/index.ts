@@ -1,6 +1,7 @@
 import { NextFunction, Response, Request } from "express";
 import helmet from "helmet";
 import { port } from "../config";
+import chalk from "chalk";
 
 export default () =>
   helmet({
@@ -36,6 +37,27 @@ export default () =>
     },
     noSniff: true,
   });
+
+export const httpLogger = (req: Request, res: Response, next: NextFunction) => {
+  const statusColor = res.statusCode >= 400 ? chalk.red : chalk.green;
+
+  const startHrTime = process.hrtime();
+  const ipAddr =
+    req.headers["x-forwarded-for"] || req.connection?.remoteAddress;
+
+  res.on("finish", () => {
+    const elapsedHrTime = process.hrtime(startHrTime);
+    const elapsedTimeInMs = elapsedHrTime[0] * 1000 + elapsedHrTime[1] / 1e6;
+    console.log(
+      `${ipAddr} - ${chalk.blue(req.method)} ${chalk.cyan(
+        req.url
+      )} [${statusColor(res.statusCode)}] - ${chalk.yellow(
+        elapsedTimeInMs.toFixed(3)
+      )} ms`
+    );
+  });
+  next();
+};
 
 export function onError(error: any | Error): void {
   if (error.syscall !== "listen") {
