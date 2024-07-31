@@ -9,6 +9,9 @@
     "prestart": "npm run build",
     "dev": "ts-node-dev --respawn index.ts --transpileOnly"
   },
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
