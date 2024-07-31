@@ -1,10 +1,10 @@
 import express, { Request, Response } from "express";
-import csp, { onError, serverHeaders } from "./middleware";
+import csp, { onError } from "./src/middleware";
 import http from "http";
 import { debug } from "console";
-import { port } from "./config";
+import { port } from "./src/config";
 import { join } from "path";
-import { emailTempl, sendEmail } from "./utils";
+import { emailTempl, sendEmail } from "./src/utils";
 
 const app = express();
 const server = http.createServer(app);
