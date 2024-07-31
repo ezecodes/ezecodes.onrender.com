@@ -1,4 +1,4 @@
-import { NextFunction, Response } from "express";
+import { NextFunction, Response, Request } from "express";
 import helmet from "helmet";
 import { port } from "../config";
 
@@ -49,23 +49,23 @@ export function onError(error: any | Error): void {
     case "EACCES":
       console.error(bind + " requires elevated privileges");
       process.exit(1);
+      break;
     case "EADDRINUSE":
       console.error(bind + " is already in use");
       process.exit(1);
+      break;
     default:
       throw error;
   }
 }
 
-export const serverHeaders = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  res.setHeader("X-Content-Type-Options", "nosniff");
-  res.setHeader("X-Frame-Options", "DENY");
-  res.setHeader("X-Powered-By", "");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("X-XSS-Protection", "1; mode=block");
-  next();
+export const customHeaders = () => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("X-Frame-Options", "DENY");
+    res.setHeader("X-Powered-By", "Jah");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("X-XSS-Protection", "1; mode=block");
+    next();
+  };
 };

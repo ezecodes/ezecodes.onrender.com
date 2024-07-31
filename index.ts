@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import csp, { onError } from "./src/middleware";
+import csp, { onError, customHeaders } from "./src/middleware";
 import http from "http";
 import { debug } from "console";
 import { port } from "./src/config";
@@ -9,7 +9,17 @@ import { emailTempl, sendEmail } from "./src/utils";
 const app = express();
 const server = http.createServer(app);
 
+server.on("error", onError);
+
+server.on("listening", () => {
+  const addr = server.address();
+  const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr?.port;
+  debug("Listening on " + bind);
+});
+server.listen(Number(port), "0.0.0.0");
+
 app.use(csp());
+app.use(customHeaders());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(join(__dirname, "public")));
@@ -23,11 +33,3 @@ app.post("/contact", (req: Request, res: Response) => {
   });
   res.redirect("/?rT=form&ok=true");
 });
-server.on("error", onError);
-
-server.on("listening", () => {
-  const addr = server.address();
-  const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr?.port;
-  debug("Listening on " + bind);
-});
-server.listen(Number(port), "0.0.0.0");
