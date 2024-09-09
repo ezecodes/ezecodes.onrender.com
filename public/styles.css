@@ -110,7 +110,7 @@ section {
 }
 
 .container {
-  padding: 0 1em;
+  /* padding: 0 1em; */
 }
 /* About Section Styling */
 .about-section {
@@ -248,7 +248,7 @@ section {
   width: 100%;
   margin: 0 auto;
   background-color: #1f1f1f;
-  padding: 2em;
+  padding: 1.5rem;
   /* border-radius: 8px; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -299,7 +299,7 @@ font-size: 1em;
   background-color: #0056b3;
 }
 .about-section {
-  padding: 4em 1em;
+  padding: 4em 1rem;
   background-color: #171717;
   color: #333;
 }
@@ -347,7 +347,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 0 2em;
+  padding: 0 1em;
 }
 
 .footer-container > div {
