@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elijah Eze - Portfolio</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Get In Touch</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <div>
+                <div class="type-wrapper">
+                    <h1 id="hero-text" class="typed-text"></h1>
+                </div>
+                <div class="type-wrapper">
+                    <p id="hero-subtext" class="typed-text"></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="about-section observe">
+        <div class="container">
+            <div class="about-content">
+                <div class="profile-picture">
+                    <img src="https://avatars.githubusercontent.com/u/78436201?v=4"
+                        alt="Elijah Eze" />
+                </div>
+                <div class="about-text typed-text">
+                    <h2>About Me</h2>
+                    <p>
+                        Hello! I'm Elijah Eze, a passionate software developer
+                        specializing in backend technologies, AWS, and DevOps
+                        practices. I
+                        thrive on solving complex problems and love working on
+                        innovative
+                        projects.
+                    </p>
+                    <p>Here are some highlights of my journey:</p>
+                    <div class="highlights">
+                        <div class="highlight-item">
+                            <h3>Projects Completed</h3>
+                            <p>
+                                16+ projects, including web applications, APIs,
+                                and cloud
+                                solutions.
+                            </p>
+                        </div>
+                        <div class="highlight-item">
+                            <h3>APIs Built</h3>
+                            <p>
+                                100+ API routes developed for various
+                                applications and
+                                services.
+                            </p>
+                        </div>
+                        <div class="highlight-item">
+                            <h3>Technologies Used</h3>
+                            <p>
+                                Mastered technologies like AWS, Node.js, Linux,
+                                and React.
+                            </p>
+                        </div>
+
+                        <div class="highlight-item">
+                            <h3>Blog Posts</h3>
+                            <p>
+                                5+ articles on Medium about software development
+                                and DevOps.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section observe">
+        <div class="container">
+            <h2 class="typed-text">Skills</h2>
+            <div class="skills-grid">
+                <% [{
+href: "https://aws.amazon.com",
+src: "/images/aws.svg",
+alt: "aws"
+},
+{
+href: "https://www.linux.org/",
+src: "/images/linux.svg",
+alt: "linux",
+},
+{
+href: "https://nodejs.org",
+src: "/images/nodejs.svg",
+alt: "nodejs"
+},
+{
+href: "https://www.docker.com/",
+src: "/images/docker.svg",
+alt: "docker",
+},
+{
+href: "https://expressjs.com",
+src: "/images/express.svg",
+alt: "express",
+},
+{
+href: "https://firebase.google.com/",
+src: "/images/firebase.svg",
+alt: "firebase",
+},
+{
+href: "https://www.gnu.org/software/bash/",
+src: "/images/bash.svg",
+alt: "bash",
+},
+{
+href: "https://www.jenkins.io",
+src: "/images/jenkins.svg",
+alt: "jenkins",
+},
+{
+href: "https://www.mongodb.com/",
+src: "/images/mongodb.svg",
+alt: "mongodb",
+},
+{
+href: "https://www.mysql.com/",
+src: "/images/mysql.svg",
+alt: "mysql",
+},
+{
+href: "https://nextjs.org/",
+src: "/images/nextjs.svg",
+alt: "nextjs"
+},
+{
+href: "https://www.nginx.com",
+src: "/images/nginx.svg",
+alt: "nginx"
+},
+{
+href: "https://www.postgresql.org",
+src: "/images/postgresql.svg",
+alt: "postgresql",
+},
+{
+href: "https://postman.com",
+src: "/images/postman.svg",
+alt: "postman",
+},
+{
+href: "https://reactjs.org/",
+src: "/images/react.svg",
+alt: "react"
+},
+{
+href: "https://reactnative.dev/",
+src: "/images/header_logo.svg",
+alt: "reactnative",
+},
+{
+href: "https://www.typescriptlang.org/",
+src: "/images/typescript/typescript.svg",
+alt: "typescript",
+},
+{
+href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+src: "/images/javascript.svg",
+alt: "javascript",
+},
+].forEach(skill => { %>
+                <div class="skill">
+                    <a href="<%= skill.href %>" target="_blank"
+                        rel="noreferrer">
+                        <img src="<%= skill.src %>"
+                            alt="<%= skill.alt %>" width="40"
+                            height="40" />
+                    </a>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section observe">
+        <div class="container">
+            <h2 class="typed-text">Projects</h2>
+            <div class="projects-grid">
+                <% [{
+title: "Clifbay",
+description: "One of the fastest growing Africa's online marketplace.",
+image: "clifbay.png",
+link: "https://clifbay.com",
+},
+{
+title: "AWS Cloud IAC",
+description: "Simplifying cloud deployment process.",
+image: "https://miro.medium.com/v2/resize:fit:700/0*IF5Z05nkdvA3JDXI.png",
+link: "https://github.com/ezecodes/aws-services",
+},
+].forEach(project => { %>
+                <div class="project-card">
+                    <img src="<%= project.image %>"
+                        alt="<%= project.title %>"
+                        height="auto" />
+                    <div class="project-info">
+                        <h3>
+                            <%= project.title %>
+                        </h3>
+                        <p>
+                            <%= project.description %>
+                        </p>
+                        <a href="<%= project.link %>"
+                            target="_blank" class="cta-button">View Project</a>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section observe">
+        <div class="container">
+            <h2 class="typed-text">Contact Me</h2>
+            <form action="/contact" method="post" id="contact-form"
+                class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5"
+                        required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send
+                    Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About Me</h3>
+                <p>
+                    I'm Elijah Eze, a dedicated backend developer and cloud
+                    engineer. I
+                    specialize in creating scalable, efficient, and secure
+                    systems.
+                    Let's connect and build something amazing together!
+                </p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <a href="https://medium.com/@elijaheze777"
+                            target="_blank">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect with Me</h3>
+                <ul>
+                    <li>
+                        <a href="https://linkedin.com/in/elijah-eze-1b367521b"
+                            target="_blank"><img
+                                src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
+                                alt="LinkedIn" /></a>
+                    </li>
+                    <li>
+                        <a href="https://medium.com/@elijaheze777"
+                            target="_blank"><img
+                                src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg"
+                                alt="Medium" /></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ezecodes"
+                            target="_blank"><img
+                                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                                alt="GitHub" /></a>
+                    </li>
+                    <li>
+                        <a href="mailto:elijaheze777@gmail.com"
+                            target="_blank"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg"
+                                alt="Email" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Elijah Eze. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+<script src="/script.js" defer></script>
+
+</html>

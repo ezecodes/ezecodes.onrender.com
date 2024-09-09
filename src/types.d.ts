@@ -8,4 +8,10 @@ declare namespace NodeJS {
   }
 }
 
-declare module 'nodemailer';
+export type RequestBodyType = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+declare module "nodemailer";

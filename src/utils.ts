@@ -1,6 +1,7 @@
-import { mailConfig } from "./config";
+import { mailConfig, contactEmailAddress } from "./config";
 import nodemailer from "nodemailer";
 import SMTPTransport from "nodemailer/lib/smtp-transport";
+import { RequestBodyType } from "./types";
 
 export function sendEmail(options: {
   receiver: string;
@@ -34,15 +35,10 @@ export function sendEmail(options: {
   }
 }
 
-export const emailTempl = ({
-  name,
-  email,
-  message,
-}: {
-  name: string;
-  email: string;
-  message: string;
-}) => `<div class="content">
+export function deliverContactForm({ name, email, message }: RequestBodyType) {
+  sendEmail({
+    subject: "Contact",
+    html: `<div class="content">
     <p>Contact form</p>
     <p>Request received from email<strong>${email}</strong>. Below are contact details and the specifics of the request:</p>
     <p><strong>Name:</strong> ${name}</p>
@@ -50,4 +46,7 @@ export const emailTempl = ({
     <p><strong>Message:</strong></p>
     <p>${message}</p>
       
-</div> `;
+</div> `,
+    receiver: contactEmailAddress!,
+  });
+}
