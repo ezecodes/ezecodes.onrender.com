@@ -40,7 +40,7 @@ export function deliverContactForm({ name, email, message }: RequestBodyType) {
     subject: "Contact",
     html: `<div class="content">
     <p>Contact form</p>
-    <p>Request received from email<strong>${email}</strong>. Below are contact details and the specifics of the request:</p>
+    <p>Request received from email<strong> ${email}</strong>. Below are contact details and the specifics of the request:</p>
     <p><strong>Name:</strong> ${name}</p>
     <p><strong>Email:</strong> ${email}</p>
     <p><strong>Message:</strong></p>

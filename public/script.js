@@ -48,15 +48,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const contactForm = document.getElementById("contact-form");
-  const name = contactForm.name;
-  const email = contactForm.email;
-  const message = contactForm.message;
+  const name = document.querySelector('input[name="name"]');
+  const email = document.querySelector('input[name="email"]');
+  const message = document.querySelector('textarea[name="message"]');
 
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
     fetch("/contact", {
       method: "post",
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        message: message.value,
+      }),
       headers: {
         "content-type": "application/json",
         Accept: "application/json",
