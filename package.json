@@ -4,7 +4,7 @@
    "description": "",
    "main": "script.js",
    "scripts": {
-      "build": "tsc && copyfiles -u 1 public/**/* dist/public",
+      "build": "tsc && copyfiles -u 1 public/**/* dist/public && copyfiles -u 1 src/views/**/* dist/",
       "start": "node dist/index.js",
       "dev": "ts-node-dev --respawn src/index.ts --transpileOnly"
    },
