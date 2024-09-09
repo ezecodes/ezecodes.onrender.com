@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form Submission</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>New Contact Form Submission</h1>
+      </div>
+      <div class="content">
+        <p>
+          <strong>Message From:</strong> <%= senderName %> (<%= senderEmail %>)
+        </p>
+        <p><strong>Subject:</strong> <%= subject %></p>
+        <p><strong>Message:</strong></p>
+        <p><%= message %></p>
+        <p>
+          Thank you for your interest in my services. I will review your message
+          and get back to you as soon as possible.
+        </p>
+      </div>
+      <div class="footer">
+        <p>
+          If you have any immediate questions, please contact me directly at
+          <a href="mailto:<%= developerEmail %>"><%= developerEmail %></a>.
+        </p>
+        <p>Best regards,</p>
+        <p><%= developerName %></p>
+      </div>
+    </div>
+  </body>
+</html>
