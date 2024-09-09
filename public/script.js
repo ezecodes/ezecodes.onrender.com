@@ -52,28 +52,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const email = contactForm.email;
   const message = contactForm.message;
 
-  contactForm.addEventListener((e) => {
+  contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
     fetch("/contact", {
       method: "post",
       body: JSON.stringify({ name, email, message }),
       headers: {
         "content-type": "application/json",
-        accepts: "application/json",
+        Accept: "application/json",
       },
-    }).then((res) => {
-      Swal.fire({
-        title: "<strong>Success</strong>",
-        icon: "info",
-        html: res.message,
-        showCloseButton: true,
-        showCancelButton: true,
-        focusConfirm: false,
-        confirmButtonText: "Great!",
-        confirmButtonAriaLabel: "We'll get back to you soon!",
-        cancelButtonText: "Dismiss",
-        cancelButtonAriaLabel: "Thumbs down",
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        Swal.fire({
+          title: "Success!",
+          text: res.message,
+          icon: "success",
+        });
       });
-    });
   });
 });

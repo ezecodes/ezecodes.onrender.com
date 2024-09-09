@@ -15,6 +15,7 @@ export default () =>
           "https://stackpath.bootstrapcdn.com",
           "https://fonts.googleapis.com",
           "https://cdnjs.cloudflare.com",
+          "'unsafe-inline'",
         ],
         scriptSrc: ["'self'", "https://cdn.jsdelivr.net", "https://unpkg.com"],
         imgSrc: [
