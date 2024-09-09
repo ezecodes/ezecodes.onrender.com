@@ -68,11 +68,36 @@ document.addEventListener("DOMContentLoaded", () => {
     })
       .then((res) => res.json())
       .then((res) => {
+        name.value = "";
+        email.value = "";
+        message.value = "";
         Swal.fire({
-          title: "Success!",
+          title: "Delivered!",
           text: res.message,
           icon: "success",
         });
       });
   });
+
+  const readMoreButton = document.getElementById("readMoreButton");
+  const shortenedContent = document.getElementById("shortenedContent");
+  const gradient = document.getElementById("gradient");
+
+  readMoreButton.addEventListener("click", function () {
+    const readMoreText = document.querySelectorAll(".read-more");
+    readMoreText.forEach(function (paragraph) {
+      paragraph.style.display = "block";
+    });
+
+    shortenedContent.style.maxHeight = "none";
+    gradient.style.display = "none";
+    readMoreButton.style.display = "none";
+  });
+
+  // Display gradient over shortened content initially
+  window.onload = function () {
+    if (shortenedContent.scrollHeight > shortenedContent.clientHeight) {
+      gradient.style.display = "block";
+    }
+  };
 });

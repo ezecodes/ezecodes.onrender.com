@@ -96,6 +96,7 @@ h2.typed-text {
   text-decoration: none;
   border-radius: 4px;
   margin-top: 1em;
+  transition: all .1s ease-in;
 }
 
 .cta-button:hover {
@@ -152,7 +153,10 @@ section {
   font-size: 2em;
   margin-bottom: 0.5em;
 }
+.shortened-content p{
+  text-align: justify;
 
+}
 .about-text p {
   line-height: 1.6;
   margin-bottom: 1em;
